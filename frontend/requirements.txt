@@ -1,0 +1,10 @@
+# Next.js 프로젝트는 주로 npm/yarn을 사용합니다.
+# 아래는 참고용 패키지 목록입니다.
+
+next
+react
+react-dom
+typescript
+tailwindcss
+postcss
+autoprefixer 
