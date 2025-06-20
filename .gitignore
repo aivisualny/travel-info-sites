@@ -46,3 +46,28 @@ dist/
 *.log
 .idea/
 .vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS
+Thumbs.db
+
+# Env
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Test
+*.test.ts
+*.test.js
+
+# 기타 빌드 산출물
+*.out

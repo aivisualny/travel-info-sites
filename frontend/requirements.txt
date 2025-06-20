@@ -7,4 +7,5 @@ react-dom
 typescript
 tailwindcss
 postcss
-autoprefixer 
+autoprefixer
+pandas 

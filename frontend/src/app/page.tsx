@@ -1,57 +1,118 @@
-import Image from "next/image";
+'use client';
 
-const activities = [
-  {
-    id: 'swiss-paragliding',
-    title: '스위스 알프스 패러글라이딩',
-    thumbnail: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
-    location: '스위스, 알프스',
-  },
-  {
-    id: 'dubai-desert-camp',
-    title: '두바이 사막 캠핑',
-    thumbnail: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
-    location: 'UAE, 두바이',
-  },
-  {
-    id: 'okinawa-diving',
-    title: '오키나와 다이빙',
-    thumbnail: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80',
-    location: '일본, 오키나와',
-  },
-];
+import { useState, useMemo } from 'react';
+import dynamic from 'next/dynamic';
+import { LatLngExpression } from 'leaflet';
+import { activitiesData, Activity } from '../data/activities';
+import { categories } from '../data/categories';
+import { continents } from '../data/continents';
+import ActivityDetailCard from './components/ActivityDetailCard';
+
+const MapComponent = dynamic(() => import('./components/Map'), {
+  ssr: false,
+});
 
 export default function Home() {
+  const [mapCenter, setMapCenter] = useState<LatLngExpression>([20, 0]);
+  const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeContinent, setActiveContinent] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  // Mobile sidebar states
+  const [isContinentSidebarOpen, setIsContinentSidebarOpen] = useState(false);
+  const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false);
+
+  const filteredActivities = useMemo(() => {
+    let result = activitiesData;
+    if (activeContinent) result = result.filter(act => act.continent === activeContinent);
+    if (activeCategory) result = result.filter(act => act.category === activeCategory);
+    if (searchQuery) {
+      const lowercasedQuery = searchQuery.toLowerCase();
+      result = result.filter(act =>
+        act.activity.toLowerCase().includes(lowercasedQuery) ||
+        act.location.toLowerCase().includes(lowercasedQuery) ||
+        act.country.toLowerCase().includes(lowercasedQuery)
+      );
+    }
+    return result;
+  }, [activeContinent, activeCategory, searchQuery]);
+
+  const handleSelectActivity = (activity: Activity) => {
+    setMapCenter(activity.coords);
+    setSelectedActivity(activity);
+    if (window.innerWidth < 1024) { // On mobile, open filter sidebar to show details
+        setIsFilterSidebarOpen(true);
+    }
+  };
+
+  const handleBackToList = () => setSelectedActivity(null);
+  
+  const ContinentSidebar = () => (
+    <div className="space-y-2">
+      <button onClick={() => { setActiveContinent(null); setSelectedActivity(null); }} className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${!activeContinent ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-gray-200'}`}>🌐 전체</button>
+      {continents.map(con => <button key={con.name} onClick={() => { setActiveContinent(con.name); setSelectedActivity(null); }} className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${activeContinent === con.name ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-gray-200'}`}>{con.emoji} {con.name}</button>)}
+    </div>
+  );
+
+  const FilterSidebar = () => (
+    selectedActivity ? <ActivityDetailCard activity={selectedActivity} onBack={handleBackToList} /> : <>
+      <div className="mb-4">
+        <h2 className="text-xl font-bold mb-2">검색 🔎</h2>
+        <input type="search" placeholder="액티비티, 도시, 국가명 검색..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+      <h2 className="text-xl font-bold mb-4">카테고리</h2>
+      <div className="flex flex-wrap gap-2 mb-4">
+        <button onClick={() => setActiveCategory(null)} className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${!activeCategory ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white hover:bg-gray-200 text-gray-700 border-gray-300'}`}>🌐 전체 보기</button>
+        {categories.map(cat => <button key={cat.name} onClick={() => setActiveCategory(cat.name)} className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${activeCategory === cat.name ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white hover:bg-gray-200 text-gray-700 border-gray-300'}`}>{cat.emoji} {cat.name}</button>)}
+      </div>
+      <hr className="my-4" />
+      <h2 className="text-xl font-bold mb-4">액티비티 목록 ({filteredActivities.length})</h2>
+      <div className="space-y-3">
+        {filteredActivities.length > 0 ? filteredActivities.map(activity => <div key={activity.id} className="rounded-lg p-3 shadow-md bg-white hover:shadow-lg hover:ring-2 hover:ring-blue-400 transition-all cursor-pointer" onClick={() => handleSelectActivity(activity)}><h3 className="font-semibold text-gray-800">{activity.activity}</h3><p className="text-sm text-gray-600">{activity.location}</p></div>) : <p className="text-center text-gray-500 mt-8">선택한 조건에 맞는 액티비티가 없습니다.</p>}
+      </div>
+    </>
+  );
+
   return (
-    <main className="min-h-screen bg-gray-50">
-      <section className="w-full h-64 bg-gradient-to-r from-blue-400 to-green-300 flex items-center justify-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">올여름 이색 체험 여행을 떠나보세요!</h1>
-      </section>
-      <section className="max-w-4xl mx-auto px-4">
-        <h2 className="text-2xl font-semibold mb-4">지역별 추천 체험</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {activities.map((act) => (
-            <a
-              key={act.id}
-              href={`/activity/${act.id}`}
-              className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden group"
-            >
-              <div className="relative w-full h-40">
-                <Image
-                  src={act.thumbnail}
-                  alt={act.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="font-bold text-lg mb-1">{act.title}</h3>
-                <p className="text-gray-500 text-sm">{act.location}</p>
-              </div>
-            </a>
-          ))}
+    <div className="h-screen w-screen overflow-hidden relative">
+      {/* Mobile Sidebar Toggles */}
+      <div className="lg:hidden absolute top-4 left-4 z-20 space-y-2">
+        <button onClick={() => setIsContinentSidebarOpen(!isContinentSidebarOpen)} className="p-2 bg-white rounded-full shadow-lg"><span className="text-2xl">🌏</span></button>
+      </div>
+       <div className="lg:hidden absolute top-4 right-4 z-20">
+        <button onClick={() => setIsFilterSidebarOpen(!isFilterSidebarOpen)} className="p-2 bg-white rounded-full shadow-lg"><span className="text-2xl">⚙️</span></button>
+      </div>
+
+      {/* Mobile Continent Sidebar */}
+      <div className={`lg:hidden absolute top-0 left-0 h-full w-64 bg-gray-100 p-4 z-30 transform transition-transform ${isContinentSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <h2 className="text-xl font-bold mb-4">대륙 선택</h2>
+        <ContinentSidebar />
+      </div>
+      {(isContinentSidebarOpen || isFilterSidebarOpen) && <div className="lg:hidden absolute inset-0 bg-black bg-opacity-50 z-20" onClick={() => { setIsContinentSidebarOpen(false); setIsFilterSidebarOpen(false); }}></div>}
+
+      {/* Mobile Filter Sidebar */}
+       <div className={`lg:hidden absolute top-0 right-0 h-full w-80 bg-gray-50 p-4 z-30 transform transition-transform overflow-y-auto ${isFilterSidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <FilterSidebar />
+      </div>
+
+      {/* Main Content */}
+      <main className="flex h-full bg-white text-gray-800">
+        {/* Desktop Continent Sidebar */}
+        <div className="hidden lg:block w-[15%] p-4 bg-gray-100 overflow-y-auto border-r">
+          <h2 className="text-xl font-bold mb-4">대륙 선택</h2>
+          <ContinentSidebar />
         </div>
-      </section>
-    </main>
+
+        <div className="w-full lg:w-[60%] h-full relative">
+          <MapComponent center={mapCenter} activities={filteredActivities} selectedActivity={selectedActivity} onMarkerClick={handleSelectActivity} />
+        </div>
+        
+        {/* Desktop Filter Sidebar */}
+        <div className="hidden lg:block w-[25%] p-4 bg-gray-50 overflow-y-auto border-l">
+          <FilterSidebar />
+        </div>
+      </main>
+    </div>
   );
 }
