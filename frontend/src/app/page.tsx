@@ -50,8 +50,8 @@ export default function Home() {
   
   const ContinentSidebar = () => (
     <div className="space-y-2">
-      <button onClick={() => { setActiveContinent(null); setSelectedActivity(null); }} className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${!activeContinent ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-gray-200'}`}>🌐 전체</button>
-      {continents.map(con => <button key={con.name} onClick={() => { setActiveContinent(con.name); setSelectedActivity(null); }} className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${activeContinent === con.name ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-gray-200'}`}>{con.emoji} {con.name}</button>)}
+      <button onClick={() => { setActiveContinent(null); setSelectedActivity(null); }} className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${!activeContinent ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-gray-200'}`}>🌐 전체</button>
+      {continents.map(con => <button key={con.name} onClick={() => { setActiveContinent(con.name); setSelectedActivity(null); }} className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${activeContinent === con.name ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-gray-200'}`}>{con.emoji} {con.name}</button>)}
     </div>
   );
 
@@ -63,13 +63,13 @@ export default function Home() {
       </div>
       <h2 className="text-xl font-bold mb-4">카테고리</h2>
       <div className="flex flex-wrap gap-2 mb-4">
-        <button onClick={() => setActiveCategory(null)} className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${!activeCategory ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white hover:bg-gray-200 text-gray-700 border-gray-300'}`}>🌐 전체 보기</button>
-        {categories.map(cat => <button key={cat.name} onClick={() => setActiveCategory(cat.name)} className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${activeCategory === cat.name ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white hover:bg-gray-200 text-gray-700 border-gray-300'}`}>{cat.emoji} {cat.name}</button>)}
+        <button onClick={() => setActiveCategory(null)} className={`px-3 py-1.5 text-base rounded-full border transition-colors ${!activeCategory ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white hover:bg-gray-200 text-gray-700 border-gray-300'}`}>🌐 전체 보기</button>
+        {categories.map(cat => <button key={cat.name} onClick={() => setActiveCategory(cat.name)} className={`px-3 py-1.5 text-base rounded-full border transition-colors ${activeCategory === cat.name ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white hover:bg-gray-200 text-gray-700 border-gray-300'}`}>{cat.emoji} {cat.name}</button>)}
       </div>
       <hr className="my-4" />
       <h2 className="text-xl font-bold mb-4">액티비티 목록 ({filteredActivities.length})</h2>
       <div className="space-y-3">
-        {filteredActivities.length > 0 ? filteredActivities.map(activity => <div key={activity.id} className="rounded-lg p-3 shadow-md bg-white hover:shadow-lg hover:ring-2 hover:ring-blue-400 transition-all cursor-pointer" onClick={() => handleSelectActivity(activity)}><h3 className="font-semibold text-gray-800">{activity.activity}</h3><p className="text-sm text-gray-600">{activity.location}</p></div>) : <p className="text-center text-gray-500 mt-8">선택한 조건에 맞는 액티비티가 없습니다.</p>}
+        {filteredActivities.length > 0 ? filteredActivities.map(activity => <div key={activity.id} className="rounded-lg p-3 shadow-md bg-white hover:shadow-lg hover:ring-2 hover:ring-blue-400 transition-all cursor-pointer text-base font-sans" onClick={() => handleSelectActivity(activity)}><h3 className="font-semibold text-gray-800 text-lg">{activity.activity}</h3><p className="text-base text-gray-600">{activity.location}</p></div>) : <p className="text-center text-gray-500 mt-8 text-base">선택한 조건에 맞는 액티비티가 없습니다.</p>}
       </div>
     </>
   );

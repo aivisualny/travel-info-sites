@@ -6,7 +6,7 @@ import L, { LatLngExpression } from 'leaflet';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Activity } from '@/data/activities';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 // Leaflet's default icon path issue with Webpack
 // This manually sets the paths for the marker icons
@@ -30,6 +30,8 @@ const highlightedIcon = L.icon({
   shadowSize: [41, 41]
 });
 
+const fallbackImg = '/public/globe.svg'; // public 폴더 내 기본 이미지 사용
+
 interface MapProps {
   center: LatLngExpression;
   activities: Activity[];
@@ -46,6 +48,24 @@ const MapEvents = ({ center }: { center: LatLngExpression }) => {
 };
 
 const MapComponent = ({ center, activities, selectedActivity, onMarkerClick }: MapProps) => {
+  const mapRef = useRef<any>(null);
+
+  // 마커 클릭 시, 여백을 두고 부드럽게 이동
+  const handleMarkerClick = (activity: Activity) => {
+    onMarkerClick(activity);
+    if (mapRef.current) {
+      const map = mapRef.current;
+      // 오른쪽 패널이 가려지는 것을 고려해 x축 offset 적용 (예: 200px)
+      const container = map.getContainer();
+      const size = map.getSize();
+      const point = map.latLngToContainerPoint(activity.coords);
+      // x축을 왼쪽으로 150px 이동 (여백)
+      const offsetPoint = L.point(point.x - 150, point.y);
+      const targetLatLng = map.containerPointToLatLng(offsetPoint);
+      map.panTo(targetLatLng, { animate: true });
+    }
+  };
+
   return (
     <MapContainer 
       center={center} 
@@ -53,6 +73,7 @@ const MapComponent = ({ center, activities, selectedActivity, onMarkerClick }: M
       style={{ height: '100%', width: '100%' }}
       maxBounds={[[-90, -180], [90, 180]]}
       worldCopyJump={false}
+      whenCreated={mapInstance => { mapRef.current = mapInstance; }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -66,33 +87,24 @@ const MapComponent = ({ center, activities, selectedActivity, onMarkerClick }: M
           position={activity.coords} 
           icon={selectedActivity?.id === activity.id ? highlightedIcon : defaultIcon}
           eventHandlers={{
-            click: () => {
-              onMarkerClick(activity);
-            },
+            click: () => handleMarkerClick(activity),
           }}
         >
           <Tooltip permanent={false} direction="top" offset={[0, -41]}>
-            <div className="w-40 h-28 relative">
+            <div className="w-40 h-28 relative flex flex-col items-center justify-center">
               <Image
                 src={activity.imageUrl}
                 alt={activity.activity}
                 fill
                 style={{ objectFit: 'cover' }}
                 className="rounded-md"
+                onError={(e: any) => { e.target.src = fallbackImg; }}
               />
-              <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs p-1 w-full rounded-b-md">
+              <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-base p-1 w-full rounded-b-md text-center">
                 {activity.activity}
               </div>
             </div>
           </Tooltip>
-          <Popup>
-            <div className="text-center">
-              <span className="font-semibold">{activity.activity}</span> at {activity.location}<br /> 
-              <button onClick={() => onMarkerClick(activity)} className="mt-1 text-blue-600 hover:underline">
-                우측에서 자세히 보기
-              </button>
-            </div>
-          </Popup>
         </Marker>
       ))}
     </MapContainer>
