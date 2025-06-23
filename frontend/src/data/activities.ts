@@ -938,5 +938,125 @@ export const activitiesData: Activity[] = [
       '마이닝 트레인, 부메랑, 랩터 등 운영',
       '가족 친화적 놀이기구 보유'
     ],
+  },
+  {
+    id: 'bwindi-gorilla-trekking',
+    continent: '아프리카',
+    country: '우간다',
+    location: '부윈디 국립공원',
+    activity: '산악고릴라 트레킹',
+    category: '지속가능/윤리적 체험',
+    coords: [1.084, 29.648],
+    features: [
+      "세계에 약 1,000마리 남은 산악고릴라 중 거의 절반 서식",
+      "3~6시간 밀림 트레킹으로 야생 고릴라 조우",
+      "지역 공동체와 연계한 지속가능 관광"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1593486147824-cd4ab3414737?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    id: 'everest-basecamp-trek',
+    continent: '아시아',
+    country: '네팔',
+    location: '에베레스트 베이스캠프 (룩라~캠프)',
+    activity: '에베레스트 베이스캠프 트레킹',
+    category: '트레킹 & 하이킹',
+    coords: [28.0043, 86.8528],
+    features: [
+      "해발 5,364m 세계 최고봉 기슭 도달",
+      "약 12일간 130km 히말라야 횡단",
+      "몬촌(티벳불교) 문화와 몽블랑 등정 대비 인기 코스"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1542834369-f10ebf06d3d1?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    id: 'volcano-boarding-nicaragua',
+    continent: '중남미',
+    country: '니카라과',
+    location: '세로 네그로 화산',
+    activity: '화산 보딩 (볼케이노 서핑)',
+    category: '익스트림 스포츠',
+    coords: [12.506, -86.702],
+    features: [
+      "활화산 경사면을 나무보드로 활강",
+      "45° 자갈 경사에서 최고 시속 80km 질주",
+      "보호장비 착용, 728m 화산 정상까지 등반 후 내려오는 익스트림 체험"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1586711823848-4d47c01f3de4?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    id: 'waitomo-blackwater-rafting',
+    continent: '오세아니아',
+    country: '뉴질랜드',
+    location: '와이토모 (북섬)',
+    activity: '블랙워터 래프팅 (글로우웜 동굴)',
+    category: '수상/해양 액티비티',
+    coords: [-38.260, 175.100],
+    features: [
+      "지하 동굴강에서 튜브 타고 떠내려가는 모험",
+      "동굴 천장에 빛나는 수천 개의 반딧불이 서식",
+      "소형 폭포 점프와 암흑 속 집라인 등 다양한 코스 (3~5시간)"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1562577309-2592ab84b1bc?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    id: 'cn-tower-edgewalk',
+    continent: '북미',
+    country: '캐나다',
+    location: '토론토 (CN타워)',
+    activity: 'CN타워 엣지워크',
+    category: '도시 익스트림',
+    coords: [43.6426, -79.3871],
+    features: [
+      "지상 356m 높이 빌딩 외벽 원형 데크를 걷는 기네스기록 액티비티",
+      "안전 하네스에만 의지해 360도 도시 전망 만끽",
+      "세계 최고 높이 외부 도보 코스 인증"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1528391721815-1462048b9f42?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    id: 'son-doong-cave-vietnam',
+    continent: '아시아',
+    country: '베트남',
+    location: '퐁냐케방 국립공원',
+    activity: '한 손둥 동굴 탐험',
+    category: '트레킹 & 하이킹',
+    coords: [17.5365, 106.2871],
+    features: [
+      "세계 최대 규모 동굴 (높이 200m, 폭 150m) 내부 정글과 강 형성",
+      "70m 높이 종유석과 야구공 크기 동굴진주 존재",
+      "연간 1천명 미만만 입장 허용되는 4박5일 한정 원정"
+    ],
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Son_Doong_Cave_DB_%281%29.jpg"
+  },
+  {
+    id: 'dubai-tandem-skydive',
+    continent: '아시아',
+    country: '아랍에미리트',
+    location: '두바이 (팜 주메이라)',
+    activity: '두바이 탄덤 스카이다이빙',
+    category: '고공/항공 액티비티',
+    coords: [25.0933, 55.1393],
+    features: [
+      "고도 4km 상공에서 60초간 시속 200km 자유낙하",
+      "하강하며 야자섬과 도시 전경 파노라마 감상",
+      "세계 각지 모험가들이 찾는 최고 인기 스카이다이빙 명소"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1542000551458-3fb6469f5b39?q=80&w=400&auto=format&fit=crop"
+  },
+  {
+    id: 'kilimanjaro-summit-trek',
+    continent: '아프리카',
+    country: '탄자니아',
+    location: '킬리만자로 산',
+    activity: '킬리만자로 정상 등정',
+    category: '트레킹 & 하이킹',
+    coords: [-3.0674, 37.3556],
+    features: [
+      "아프리카 최고봉 (해발 5,895m) 만년설 정상",
+      "열대 우림부터 설원까지 5개 기후대 체험",
+      "특별한 등반 기술 없이도 도전 가능하지만 고소적응 필수"
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1550233570-9b2ae249d7fd?q=80&w=400&auto=format&fit=crop"
   }
 ]; 
