@@ -99,17 +99,19 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex h-full bg-white text-gray-800">
         {/* Desktop Continent Sidebar */}
-        <div className="hidden lg:block w-[15%] p-4 bg-gray-100 overflow-y-auto border-r">
+        <div className="hidden lg:block w-[12%] p-4 bg-gray-100 overflow-y-auto border-r">
           <h2 className="text-xl font-bold mb-4">대륙 선택</h2>
           <ContinentSidebar />
         </div>
 
-        <div className="w-full lg:w-[60%] h-full relative">
-          <MapComponent center={mapCenter} activities={filteredActivities} selectedActivity={selectedActivity} onMarkerClick={handleSelectActivity} />
+        <div className="w-full lg:w-[68%] h-full relative p-2">
+          <div className="w-full h-full rounded-lg overflow-hidden">
+            <MapComponent center={mapCenter} activities={filteredActivities} selectedActivity={selectedActivity} onMarkerClick={handleSelectActivity} />
+          </div>
         </div>
         
         {/* Desktop Filter Sidebar */}
-        <div className="hidden lg:block w-[25%] p-4 bg-gray-50 overflow-y-auto border-l">
+        <div className="hidden lg:block w-[20%] p-4 bg-gray-50 overflow-y-auto border-l">
           <FilterSidebar />
         </div>
       </main>

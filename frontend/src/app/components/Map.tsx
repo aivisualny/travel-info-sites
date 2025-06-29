@@ -6,7 +6,8 @@ import L, { LatLngExpression } from 'leaflet';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Activity } from '@/data/activities';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import ImageGallery from './ImageGallery';
 
 // Leaflet's default icon path issue with Webpack
 // This manually sets the paths for the marker icons
@@ -30,7 +31,7 @@ const highlightedIcon = L.icon({
   shadowSize: [41, 41]
 });
 
-const fallbackImg = '/public/globe.svg'; // public 폴더 내 기본 이미지 사용
+const fallbackImg = '/images/activities/default-activity.jpg'; // 기본 이미지 경로 수정
 
 interface MapProps {
   center: LatLngExpression;
@@ -49,6 +50,17 @@ const MapEvents = ({ center }: { center: LatLngExpression }) => {
 
 const MapComponent = ({ center, activities, selectedActivity, onMarkerClick }: MapProps) => {
   const mapRef = useRef<any>(null);
+  const [mapSize, setMapSize] = useState({ width: 0, height: 0 });
+  const [showGallery, setShowGallery] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [galleryTitle, setGalleryTitle] = useState('');
+
+  // 화면 크기에 따른 적절한 줌 레벨 계산
+  const getOptimalZoom = () => {
+    if (mapSize.width < 768) return 1; // 모바일
+    if (mapSize.width < 1024) return 2; // 태블릿
+    return 2; // 데스크톱
+  };
 
   // 마커 클릭 시, 여백을 두고 부드럽게 이동
   const handleMarkerClick = (activity: Activity) => {
@@ -66,48 +78,123 @@ const MapComponent = ({ center, activities, selectedActivity, onMarkerClick }: M
     }
   };
 
+  // 이미지 갤러리 열기
+  const openGallery = (activity: Activity) => {
+    const allImages = activity.imageUrls && activity.imageUrls.length > 0 
+      ? [activity.imageUrl, ...activity.imageUrls]
+      : [activity.imageUrl];
+    
+    setGalleryImages(allImages);
+    setGalleryTitle(activity.activity);
+    setShowGallery(true);
+  };
+
+  // 지도 컨테이너 크기 감지
+  useEffect(() => {
+    const updateMapSize = () => {
+      if (mapRef.current) {
+        const container = mapRef.current.getContainer();
+        setMapSize({
+          width: container.offsetWidth,
+          height: container.offsetHeight
+        });
+      }
+    };
+
+    const resizeObserver = new ResizeObserver(updateMapSize);
+    if (mapRef.current) {
+      resizeObserver.observe(mapRef.current.getContainer());
+    }
+
+    return () => resizeObserver.disconnect();
+  }, []);
+
   return (
-    <MapContainer 
-      center={center} 
-      zoom={2} 
-      style={{ height: '100%', width: '100%' }}
-      maxBounds={[[-90, -180], [90, 180]]}
-      worldCopyJump={false}
-      whenCreated={mapInstance => { mapRef.current = mapInstance; }}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        noWrap={true}
-      />
-      <MapEvents center={center} />
-      {activities.map((activity) => (
-        <Marker 
-          key={activity.id} 
-          position={activity.coords} 
-          icon={selectedActivity?.id === activity.id ? highlightedIcon : defaultIcon}
-          eventHandlers={{
-            click: () => handleMarkerClick(activity),
+    <>
+      <div 
+        className="relative w-full h-full"
+        style={{
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <MapContainer 
+          center={center} 
+          zoom={getOptimalZoom()} 
+          style={{ 
+            height: '100%', 
+            width: '100%',
+            borderRadius: '8px',
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
           }}
+          maxBounds={[[-90, -180], [90, 180]]}
+          worldCopyJump={false}
+          whenCreated={mapInstance => { mapRef.current = mapInstance; }}
+          zoomControl={true}
+          scrollWheelZoom={true}
+          doubleClickZoom={true}
+          dragging={true}
+          animate={true}
+          easeLinearity={0.35}
         >
-          <Tooltip permanent={false} direction="top" offset={[0, -41]}>
-            <div className="w-40 h-28 relative flex flex-col items-center justify-center">
-              <Image
-                src={activity.imageUrl}
-                alt={activity.activity}
-                fill
-                style={{ objectFit: 'cover' }}
-                className="rounded-md"
-                onError={(e: any) => { e.target.src = fallbackImg; }}
-              />
-              <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-base p-1 w-full rounded-b-md text-center">
-                {activity.activity}
-              </div>
-            </div>
-          </Tooltip>
-        </Marker>
-      ))}
-    </MapContainer>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            noWrap={true}
+            opacity={0.9}
+          />
+          <MapEvents center={center} />
+          {activities.map((activity) => {
+            const allImages = activity.imageUrls && activity.imageUrls.length > 0 
+              ? [activity.imageUrl, ...activity.imageUrls]
+              : [activity.imageUrl];
+
+            return (
+              <Marker 
+                key={activity.id} 
+                position={activity.coords} 
+                icon={selectedActivity?.id === activity.id ? highlightedIcon : defaultIcon}
+                eventHandlers={{
+                  click: () => handleMarkerClick(activity),
+                }}
+              >
+                <Tooltip permanent={false} direction="top" offset={[0, -41]}>
+                  <div className="w-40 h-28 relative flex flex-col items-center justify-center">
+                    <Image
+                      src={activity.imageUrl}
+                      alt={activity.activity}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      className="rounded-md cursor-pointer"
+                      onError={(e: any) => { e.target.src = fallbackImg; }}
+                      onClick={() => openGallery(activity)}
+                    />
+                    <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-base p-1 w-full rounded-b-md text-center">
+                      {activity.activity}
+                    </div>
+                    {allImages.length > 1 && (
+                      <div className="absolute top-1 right-1 bg-black bg-opacity-50 text-white text-xs px-1 rounded">
+                        +{allImages.length - 1}
+                      </div>
+                    )}
+                  </div>
+                </Tooltip>
+              </Marker>
+            );
+          })}
+        </MapContainer>
+      </div>
+
+      {/* 이미지 갤러리 모달 */}
+      {showGallery && (
+        <ImageGallery
+          images={galleryImages}
+          title={galleryTitle}
+          onClose={() => setShowGallery(false)}
+        />
+      )}
+    </>
   );
 };
 

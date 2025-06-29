@@ -10,6 +10,7 @@ export interface Activity {
   coords: LatLngExpression;
   features: string[];
   imageUrl: string;
+  imageUrls?: string[];
 }
 
 export const activitiesData: Activity[] = [
@@ -25,7 +26,12 @@ export const activitiesData: Activity[] = [
       "111미터 높이에서의 세계 3대 번지점프",
       "거대한 폭포의 물보라 속에서 점프"
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1604593923585-1157146599b4?q=80&w=400&auto=format&fit=crop',
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/victoria-falls-bungee-1.jpg',
+      '/images/activities/victoria-falls-bungee-2.jpg',
+      '/images/activities/victoria-falls-bungee-3.jpg'
+    ]
   },
   {
     id: 'interlaken-paragliding',
@@ -39,7 +45,12 @@ export const activitiesData: Activity[] = [
       "알프스 봉우리와 호수를 감상하는 비행",
       "전문 파일럿과 함께하는 탠덤 비행"
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1509316976254-8734e34335a4?q=80&w=400&auto=format&fit=crop',
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/interlaken-paragliding-1.jpg',
+      '/images/activities/interlaken-paragliding-2.jpg',
+      '/images/activities/interlaken-paragliding-3.jpg'
+    ]
   },
   {
     id: 'sydney-surfing',
@@ -53,7 +64,12 @@ export const activitiesData: Activity[] = [
       "세계적으로 유명한 서핑 스팟",
       "초보자부터 상급자까지 모든 레벨을 위한 강습 제공"
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1493774889567-3d96433b3a39?q=80&w=400&auto=format&fit=crop',
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/sydney-surfing-1.jpg',
+      '/images/activities/sydney-surfing-2.jpg',
+      '/images/activities/sydney-surfing-3.jpg'
+    ]
   },
   {
     id: 'coron-bay-wreck-diving',
@@ -68,7 +84,12 @@ export const activitiesData: Activity[] = [
         "토치만으로 어두운 선체 내부를 탐험",
         "대형 어류와 함께 수영"
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1594924846419-f472023f809a?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/coron-bay-wreck-diving-1.jpg',
+      '/images/activities/coron-bay-wreck-diving-2.jpg',
+      '/images/activities/coron-bay-wreck-diving-3.jpg'
+    ]
   },
   {
       id: 'ariels-point-cliff-diving',
@@ -83,7 +104,12 @@ export const activitiesData: Activity[] = [
           "장비 없이 즐기는 스릴",
           "자유로운 익스트림 점프"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1589280598237-7933a958869b?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/ariels-point-cliff-diving-1.jpg',
+        '/images/activities/ariels-point-cliff-diving-2.jpg',
+        '/images/activities/ariels-point-cliff-diving-3.jpg'
+      ]
   },
   {
       id: 'baho-falls-cliff-diving',
@@ -98,7 +124,12 @@ export const activitiesData: Activity[] = [
           "바위를 타고 올라가 다이빙",
           "계곡 속 어드벤처 체험"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1532614563853-23b9d88924b8?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/baho-falls-cliff-diving-1.jpg',
+        '/images/activities/baho-falls-cliff-diving-2.jpg',
+        '/images/activities/baho-falls-cliff-diving-3.jpg'
+      ]
   },
   {
       id: 'kuala-lumpur-base-jump',
@@ -113,7 +144,12 @@ export const activitiesData: Activity[] = [
           "1999년부터 공식 베이스 점프 센터",
           "세계 최대 규모의 아드레날린 스포츠"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1599389239104-953586419894?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/kuala-lumpur-base-jump-1.jpg',
+        '/images/activities/kuala-lumpur-base-jump-2.jpg',
+        '/images/activities/kuala-lumpur-base-jump-3.jpg'
+      ]
   },
   {
       id: 'bir-billing-paragliding',
@@ -128,7 +164,12 @@ export const activitiesData: Activity[] = [
           "히말라야 상공 30분 비행",
           "저렴한 가격의 체험 ($50 내외)"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1620594033169-4e1a065b535d?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/bir-billing-paragliding-1.jpg',
+        '/images/activities/bir-billing-paragliding-2.jpg',
+        '/images/activities/bir-billing-paragliding-3.jpg'
+      ]
   },
   {
       id: 'ayung-river-rafting',
@@ -143,7 +184,12 @@ export const activitiesData: Activity[] = [
           "약 2시간 동안의 항해",
           "자연과 어우러진 복합 관광지"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1508249254148-5d46927a3c32?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/ayung-river-rafting-1.jpg',
+        '/images/activities/ayung-river-rafting-2.jpg',
+        '/images/activities/ayung-river-rafting-3.jpg'
+      ]
   },
   {
       id: 'first-glider-grindelwald',
@@ -158,7 +204,12 @@ export const activitiesData: Activity[] = [
           "독수리 모양 금속 프레임에 매달려 비행",
           "최고 시속 83km의 하강 체험"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1631242316525-07205463b22b?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/first-glider-grindelwald-1.jpg',
+        '/images/activities/first-glider-grindelwald-2.jpg',
+        '/images/activities/first-glider-grindelwald-3.jpg'
+      ]
   },
   {
       id: 'thrill-walk-schilthorn',
@@ -173,7 +224,12 @@ export const activitiesData: Activity[] = [
           "500피트 상공에서 계곡을 내려다봄",
           "007 영화 촬영지 회전 레스토랑 연결 터널 포함"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-160321769232-9a5d55589164?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/thrill-walk-schilthorn-1.jpg',
+        '/images/activities/thrill-walk-schilthorn-2.jpg',
+        '/images/activities/thrill-walk-schilthorn-3.jpg'
+      ]
   },
   {
       id: 'paragliding-tyrol',
@@ -188,7 +244,12 @@ export const activitiesData: Activity[] = [
           "청정한 공기 속 체험",
           "그림 같은 자연 경관"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1590833289098-a28a1e2f38c3?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/paragliding-tyrol-1.jpg',
+        '/images/activities/paragliding-tyrol-2.jpg',
+        '/images/activities/paragliding-tyrol-3.jpg'
+      ]
   },
   {
       id: 'cliff-diving-croatia',
@@ -199,11 +260,16 @@ export const activitiesData: Activity[] = [
       category: '수상/해양 액티비티',
       coords: [42.6400, 18.1100],
       features: [
-          "맑은 코브와 바다로 다이빙",
-          "지중해의 수정 같은 바다 체험",
-          "아름다운 해양 환경"
+          "크리스탈 같은 맑은 바다",
+          "자연 암석에서의 다이빙",
+          "지중해의 아름다운 경관"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1598585299833-2415a7293776?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/cliff-diving-croatia-1.jpg',
+        '/images/activities/cliff-diving-croatia-2.jpg',
+        '/images/activities/cliff-diving-croatia-3.jpg'
+      ]
   },
   {
       id: 'skiing-chamonix',
@@ -218,7 +284,12 @@ export const activitiesData: Activity[] = [
           "몽블랑 배경의 전설적인 슬로프",
           "비스키어를 위한 패러글라이딩과 아이스 클라이밍"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1551698223-9c593455a12c?q=80&w=400&auto=format=fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/skiing-chamonix-1.jpg',
+        '/images/activities/skiing-chamonix-2.jpg',
+        '/images/activities/skiing-chamonix-3.jpg'
+      ]
   },
   {
       id: 'interlaken-multi-adventure',
@@ -233,7 +304,12 @@ export const activitiesData: Activity[] = [
           "스키, 수상 스포츠 등 계절별 다양한 경험",
           "알프스 중심의 아드레날린 명소"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1534067869499-55639101f37b?q=80&w=400&auto=format=fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/interlaken-multi-adventure-1.jpg',
+        '/images/activities/interlaken-multi-adventure-2.jpg',
+        '/images/activities/interlaken-multi-adventure-3.jpg'
+      ]
   },
   {
       id: 'fjord-kayaking-bergen',
@@ -248,7 +324,12 @@ export const activitiesData: Activity[] = [
           "카약으로 즐기는 수상 어드벤처",
           "자연 속 스릴 체험"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1599835709543-855523315758?q=80&w=400&auto=format=fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/fjord-kayaking-bergen-1.jpg',
+        '/images/activities/fjord-kayaking-bergen-2.jpg',
+        '/images/activities/fjord-kayaking-bergen-3.jpg'
+      ]
   },
   {
       id: 'kiteskiing-baffin-island',
@@ -263,7 +344,12 @@ export const activitiesData: Activity[] = [
           "피요르드와 해안선 감상",
           "극지방의 모험적인 스키 체험"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1517838586326-b1856b39d14a?q=80&w=400&auto=format=fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/kiteskiing-baffin-island-1.jpg',
+        '/images/activities/kiteskiing-baffin-island-2.jpg',
+        '/images/activities/kiteskiing-baffin-island-3.jpg'
+      ]
   },
   {
       id: 'heliskiing-alaska',
@@ -278,7 +364,12 @@ export const activitiesData: Activity[] = [
           "세계 빙하 40%와 풍부한 적설량",
           "진정한 겨울 익스트림 체험"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1585483103342-2b6fb56c3886?q=80&w=400&auto=format=fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/heliskiing-alaska-1.jpg',
+        '/images/activities/heliskiing-alaska-2.jpg',
+        '/images/activities/heliskiing-alaska-3.jpg'
+      ]
   },
   {
       id: 'landsailing-nevada',
@@ -293,7 +384,12 @@ export const activitiesData: Activity[] = [
           "블랙 록 데저트에서 체험",
           "세계 속도 기록 도전지"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1599423300885-3c0a4421d0a5?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/landsailing-nevada-1.jpg',
+        '/images/activities/landsailing-nevada-2.jpg',
+        '/images/activities/landsailing-nevada-3.jpg'
+      ]
   },
   {
       id: 'snowkiting-michigan',
@@ -308,7 +404,12 @@ export const activitiesData: Activity[] = [
           "초겨울의 얕은 물 얼음 지역",
           "광활한 자연에서 즐기는 스노우 카이트"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1587823992926-ac5631e54911?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/snowkiting-michigan-1.jpg',
+        '/images/activities/snowkiting-michigan-2.jpg',
+        '/images/activities/snowkiting-michigan-3.jpg'
+      ]
   },
   {
       id: 'multi-adventure-utah',
@@ -323,7 +424,12 @@ export const activitiesData: Activity[] = [
           "세계적 수준의 스키장과 모압 슬릭록 트레일",
           "사계절 내내 다양한 모험 가능"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1563423984545-a7455d31b0a8?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/multi-adventure-utah-1.jpg',
+        '/images/activities/multi-adventure-utah-2.jpg',
+        '/images/activities/multi-adventure-utah-3.jpg'
+      ]
   },
   {
       id: 'aerobatic-flight-vegas',
@@ -338,7 +444,12 @@ export const activitiesData: Activity[] = [
           "직접 조종 체험 포함",
           "비용 차등 적용 ($2,999~)"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1565427471678-2273d133f380?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/aerobatic-flight-vegas-1.jpg',
+        '/images/activities/aerobatic-flight-vegas-2.jpg',
+        '/images/activities/aerobatic-flight-vegas-3.jpg'
+      ]
   },
   {
       id: 'heli-glacier-hiking-juneau',
@@ -353,7 +464,12 @@ export const activitiesData: Activity[] = [
           "캐년, 동굴, 크레바스 탐험",
           "초보자부터 전문가까지 가능"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1589922259199-2743a3f55734?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/heli-glacier-hiking-juneau-1.jpg',
+        '/images/activities/heli-glacier-hiking-juneau-2.jpg',
+        '/images/activities/heli-glacier-hiking-juneau-3.jpg'
+      ]
   },
   {
       id: 'bungee-jumping-cusco',
@@ -368,7 +484,12 @@ export const activitiesData: Activity[] = [
           "쿠스코 근교 익스트림 중심지",
           "압도적인 고도감과 스릴"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1593456939590-b6f7281a8a2a?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/bungee-jumping-cusco-1.jpg',
+        '/images/activities/bungee-jumping-cusco-2.jpg',
+        '/images/activities/bungee-jumping-cusco-3.jpg'
+      ]
   },
   {
       id: 'cotopaxi-volcano-climbing',
@@ -383,7 +504,12 @@ export const activitiesData: Activity[] = [
           "위험 요소가 공존하는 모험",
           "에콰도르 안데스의 대표 어드벤처"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1589332356249-14103a3d5f39?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/cotopaxi-volcano-climbing-1.jpg',
+        '/images/activities/cotopaxi-volcano-climbing-2.jpg',
+        '/images/activities/cotopaxi-volcano-climbing-3.jpg'
+      ]
   },
   {
       id: 'death-road-biking-bolivia',
@@ -398,7 +524,12 @@ export const activitiesData: Activity[] = [
           "절벽과 안개 낀 산길의 조합",
           "극한의 MTB 라이딩"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1616790274224-635b71b1d431?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/death-road-biking-bolivia-1.jpg',
+        '/images/activities/death-road-biking-bolivia-2.jpg',
+        '/images/activities/death-road-biking-bolivia-3.jpg'
+      ]
   },
   {
       id: 'santander-multi-adventure',
@@ -413,7 +544,12 @@ export const activitiesData: Activity[] = [
           "화이트워터 래프팅, 동굴 탐험, 번지점프 등",
           "수아레스 강에서의 래프팅 인기"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1599824642711-b75388583486?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/santander-multi-adventure-1.jpg',
+        '/images/activities/santander-multi-adventure-2.jpg',
+        '/images/activities/santander-multi-adventure-3.jpg'
+      ]
   },
   {
       id: 'w-trek-torres-del-paine',
@@ -428,7 +564,12 @@ export const activitiesData: Activity[] = [
           "야생동물 관찰 가능 (퓨마 포함)",
           "파타고니아의 대표 하이킹 루트"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1520038410233-165567b43936?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/w-trek-torres-del-paine-1.jpg',
+        '/images/activities/w-trek-torres-del-paine-2.jpg',
+        '/images/activities/w-trek-torres-del-paine-3.jpg'
+      ]
   },
   {
       id: 'hiking-el-calafate',
@@ -443,7 +584,12 @@ export const activitiesData: Activity[] = [
           "모든 수준의 트레일 제공",
           "하이킹 후 휴식 가능한 마을 분위기"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1589333584397-c6a6662193a9?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/hiking-el-calafate-1.jpg',
+        '/images/activities/hiking-el-calafate-2.jpg',
+        '/images/activities/hiking-el-calafate-3.jpg'
+      ]
   },
   {
       id: 'hiking-cascavel-brazil',
@@ -458,7 +604,12 @@ export const activitiesData: Activity[] = [
           "접근성 좋은 트레일",
           "시립 산림과 라고 지역 포함"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1533279442031-64e322d35848?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/hiking-cascavel-brazil-1.jpg',
+        '/images/activities/hiking-cascavel-brazil-2.jpg',
+        '/images/activities/hiking-cascavel-brazil-3.jpg'
+      ]
   },
   {
     id: 'table-mountain-adventure',
@@ -473,7 +624,12 @@ export const activitiesData: Activity[] = [
         "해발 1,086미터의 평평한 정상",
         "6억 년 된 지형, 국립공원 전체가 어드벤처 스팟"
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1590659820393-4585c5314777?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/table-mountain-adventure-1.jpg',
+      '/images/activities/table-mountain-adventure-2.jpg',
+      '/images/activities/table-mountain-adventure-3.jpg'
+    ]
   },
   {
       id: 'kenya-wildlife-safari',
@@ -488,7 +644,12 @@ export const activitiesData: Activity[] = [
           "지속 가능한 여행과 몰입형 문화 체험 제공",
           "전통적인 아프리카 모험의 상징"
       ],
-      imageUrl: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=400&auto=format&fit=crop'
+      imageUrl: '/images/activities/default-activity.jpg',
+      imageUrls: [
+        '/images/activities/kenya-wildlife-safari-1.jpg',
+        '/images/activities/kenya-wildlife-safari-2.jpg',
+        '/images/activities/kenya-wildlife-safari-3.jpg'
+      ]
   },
   {
       "id": "2d1c6e1e-유리다리-걷기-및-스카이워크",
@@ -503,7 +664,12 @@ export const activitiesData: Activity[] = [
           "300미터 협곡 아래를 내려다보는 경험",
           "아바타 영화 촬영지"
       ],
-      "imageUrl": "https://images.unsplash.com/photo-1598483741130-344c11f43a41?q=80&w=400&auto=format&fit=crop"
+      "imageUrl": "/images/activities/default-activity.jpg",
+      "imageUrls": [
+        '/images/activities/유리다리-걷기-및-스카이워크-1.jpg',
+        '/images/activities/유리다리-걷기-및-스카이워크-2.jpg',
+        '/images/activities/유리다리-걷기-및-스카이워크-3.jpg'
+      ]
   },
   {
       "id": "e9e6b8c1-사막-오프로드-and-낙타-트레킹",
@@ -518,7 +684,12 @@ export const activitiesData: Activity[] = [
           "밤하늘 별 관측",
           "낙타와 함께하는 트레킹"
       ],
-      "imageUrl": "https://images.unsplash.com/photo-1549646440-279f6b4055c5?q=80&w=400&auto=format&fit=crop"
+      "imageUrl": "/images/activities/default-activity.jpg",
+      "imageUrls": [
+        '/images/activities/사막-오프로드-and-낙타-트레킹-1.jpg',
+        '/images/activities/사막-오프로드-and-낙타-트레킹-2.jpg',
+        '/images/activities/사막-오프로드-and-낙타-트레킹-3.jpg'
+      ]
   },
   {
       "id": "a9a8f3d4-고산-도로-로드트립",
@@ -533,7 +704,12 @@ export const activitiesData: Activity[] = [
           "아크바이탈 고개 (4,655m)",
           "극한 로드트립"
       ],
-      "imageUrl": "https://images.unsplash.com/photo-1627885340801-9b16858e9a2b?q=80&w=400&auto=format&fit=crop"
+      "imageUrl": "/images/activities/default-activity.jpg",
+      "imageUrls": [
+        '/images/activities/고산-도로-로드트립-1.jpg',
+        '/images/activities/고산-도로-로드트립-2.jpg',
+        '/images/activities/고산-도로-로드트립-3.jpg'
+      ]
   },
   {
     id: '트롤퉁가-하이킹',
@@ -548,7 +724,12 @@ export const activitiesData: Activity[] = [
       '왕복 28km의 도전적인 코스',
       '세계적으로 유명한 포토 스팟'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/트롤퉁가-하이킹-1.jpg',
+      '/images/activities/트롤퉁가-하이킹-2.jpg',
+      '/images/activities/트롤퉁가-하이킹-3.jpg'
+    ]
   },
   {
     id: '빙하-하이킹-바트나요쿨',
@@ -563,7 +744,12 @@ export const activitiesData: Activity[] = [
       '푸른 얼음 동굴',
       '스노우모빌 체험'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/빙하-하이킹-바트나요쿨-1.jpg',
+      '/images/activities/빙하-하이킹-바트나요쿨-2.jpg',
+      '/images/activities/빙하-하이킹-바트나요쿨-3.jpg'
+    ]
   },
   {
     id: '카미노-델-레이-트레킹',
@@ -578,7 +764,12 @@ export const activitiesData: Activity[] = [
       '3km 길이의 목재 트레일',
       '2015년 재건으로 안전 보장'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/카미노-델-레이-트레킹-1.jpg',
+      '/images/activities/카미노-델-레이-트레킹-2.jpg',
+      '/images/activities/카미노-델-레이-트레킹-3.jpg'
+    ]
   },
   {
     id: '세노테-다이빙',
@@ -593,7 +784,12 @@ export const activitiesData: Activity[] = [
       '그란 세노테, 도스 오호스',
       '지하 동굴 탐험'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/세노테-다이빙-1.jpg',
+      '/images/activities/세노테-다이빙-2.jpg',
+      '/images/activities/세노테-다이빙-3.jpg'
+    ]
   },
   {
     id: '빅웨이브-서핑-하와이',
@@ -608,7 +804,12 @@ export const activitiesData: Activity[] = [
       '파이프라인, 선셋 비치',
       '세계 최고의 서핑 성지'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/빅웨이브-서핑-하와이-1.jpg',
+      '/images/activities/빅웨이브-서핑-하와이-2.jpg',
+      '/images/activities/빅웨이브-서핑-하와이-3.jpg'
+    ]
   },
   {
     id: '위슬러-다운힐-마운틴바이크',
@@ -623,7 +824,12 @@ export const activitiesData: Activity[] = [
       '세계 최대 바이크 파크',
       '여름 시즌 인기 액티비티'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/위슬러-다운힐-마운틴바이크-1.jpg',
+      '/images/activities/위슬러-다운힐-마운틴바이크-2.jpg',
+      '/images/activities/위슬러-다운힐-마운틴바이크-3.jpg'
+    ]
   },
   {
     id: '클라우드-포레스트-집라이닝',
@@ -638,7 +844,12 @@ export const activitiesData: Activity[] = [
       '열대 구름숲 상공 질주',
       '15개 플랫폼, 2.5km 길이'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/클라우드-포레스트-집라이닝-1.jpg',
+      '/images/activities/클라우드-포레스트-집라이닝-2.jpg',
+      '/images/activities/클라우드-포레스트-집라이닝-3.jpg'
+    ]
   },
   {
     id: '카이트서핑-윈드서핑-플로리아노폴리스',
@@ -653,7 +864,12 @@ export const activitiesData: Activity[] = [
       '연중 강한 바람',
       '남미 최고의 수상 스포츠 명소'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/카이트서핑-윈드서핑-플로리아노폴리스-1.jpg',
+      '/images/activities/카이트서핑-윈드서핑-플로리아노폴리스-2.jpg',
+      '/images/activities/카이트서핑-윈드서핑-플로리아노폴리스-3.jpg'
+    ]
   },
   {
     id: '샌드보딩-아타카마',
@@ -668,7 +884,12 @@ export const activitiesData: Activity[] = [
       '4x4 오프로드',
       '세계 최고의 천문 관측지'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/샌드보딩-아타카마-1.jpg',
+      '/images/activities/샌드보딩-아타카마-2.jpg',
+      '/images/activities/샌드보딩-아타카마-3.jpg'
+    ]
   },
   {
     id: '빅토리아-폭포-번지점프',
@@ -683,7 +904,12 @@ export const activitiesData: Activity[] = [
       '폭포 바로 옆 점프',
       '세계 3대 번지점프 명소'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1604593923585-1157146599b4?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/빅토리아-폭포-번지점프-1.jpg',
+      '/images/activities/빅토리아-폭포-번지점프-2.jpg',
+      '/images/activities/빅토리아-폭포-번지점프-3.jpg'
+    ]
   },
   {
     id: '사하라-낙타-샌드보딩',
@@ -698,7 +924,12 @@ export const activitiesData: Activity[] = [
       '베르베르족 문화 체험',
       '사막 별 관측과 캠핑'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/사하라-낙타-샌드보딩-1.jpg',
+      '/images/activities/사하라-낙타-샌드보딩-2.jpg',
+      '/images/activities/사하라-낙타-샌드보딩-3.jpg'
+    ]
   },
   {
     id: '치린지-디-범하라-하이킹',
@@ -713,7 +944,12 @@ export const activitiesData: Activity[] = [
       '세계자연유산',
       '특이종 동물 관찰'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/치린지-디-범하라-하이킹-1.jpg',
+      '/images/activities/치린지-디-범하라-하이킹-2.jpg',
+      '/images/activities/치린지-디-범하라-하이킹-3.jpg'
+    ]
   },
   {
     id: '퀸스타운-어드벤처-종합',
@@ -728,7 +964,12 @@ export const activitiesData: Activity[] = [
       '스카이다이빙, 제트보트, 루지',
       '네비스 스윙 등 종합 익스트림'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/퀸스타운-어드벤처-종합-1.jpg',
+      '/images/activities/퀸스타운-어드벤처-종합-2.jpg',
+      '/images/activities/퀸스타운-어드벤처-종합-3.jpg'
+    ]
   },
   {
     id: '그레이트-배리어-리프-다이빙',
@@ -743,7 +984,12 @@ export const activitiesData: Activity[] = [
       '2,300km에 걸친 시스템',
       '900여 개 섬 탐험'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/그레이트-배리어-리프-다이빙-1.jpg',
+      '/images/activities/그레이트-배리어-리프-다이빙-2.jpg',
+      '/images/activities/그레이트-배리어-리프-다이빙-3.jpg'
+    ]
   },
   {
     id: '베카-상어-다이빙',
@@ -758,7 +1004,12 @@ export const activitiesData: Activity[] = [
       '직접 상어와 다이빙',
       '세계 유일 상어 다이빙 명소'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/베카-상어-다이빙-1.jpg',
+      '/images/activities/베카-상어-다이빙-2.jpg',
+      '/images/activities/베카-상어-다이빙-3.jpg'
+    ]
   },
   {
     id: '일룰리사트-빙산-카약',
@@ -773,7 +1024,12 @@ export const activitiesData: Activity[] = [
       '도그 슬레딩',
       '유네스코 세계유산 빙산 지대'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/일룰리사트-빙산-카약-1.jpg',
+      '/images/activities/일룰리사트-빙산-카약-2.jpg',
+      '/images/activities/일룰리사트-빙산-카약-3.jpg'
+    ]
   },
   {
     id: '남극-빙하-하이킹',
@@ -788,7 +1044,12 @@ export const activitiesData: Activity[] = [
       '극한 빙하 하이킹',
       '지구 최남단 탐험'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/남극-빙하-하이킹-1.jpg',
+      '/images/activities/남극-빙하-하이킹-2.jpg',
+      '/images/activities/남극-빙하-하이킹-3.jpg'
+    ]
   },
   {
     id: '에버랜드',
@@ -803,7 +1064,12 @@ export const activitiesData: Activity[] = [
       '99헥타르 규모, T Express 롤러코스터 보유',
       '2,000마리 이상 동물이 있는 주토피아 포함'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/에버랜드-1.jpg',
+      '/images/activities/에버랜드-2.jpg',
+      '/images/activities/에버랜드-3.jpg'
+    ]
   },
   {
     id: '유니버설-스튜디오-싱가포르',
@@ -818,7 +1084,12 @@ export const activitiesData: Activity[] = [
       '슈렉, 쥬라기공원, 미라, 배틀스타 갤럭티카 등 인기 IP',
       '연간 970만 관광객 유치'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/유니버설-스튜디오-싱가포르-1.jpg',
+      '/images/activities/유니버설-스튜디오-싱가포르-2.jpg',
+      '/images/activities/유니버설-스튜디오-싱가포르-3.jpg'
+    ]
   },
   {
     id: '디즈니랜드-파리',
@@ -833,7 +1104,12 @@ export const activitiesData: Activity[] = [
       '퍼레이드 및 영화 기반 라이드',
       '유럽 대표 테마파크'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/디즈니랜드-파리-1.jpg',
+      '/images/activities/디즈니랜드-파리-2.jpg',
+      '/images/activities/디즈니랜드-파리-3.jpg'
+    ]
   },
   {
     id: '유로파파크',
@@ -848,7 +1124,12 @@ export const activitiesData: Activity[] = [
       '13개 롤러코스터, 유로 댄스 페스티벌 개최지',
       '각 유럽 국가 테마존 구성'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/유로파파크-1.jpg',
+      '/images/activities/유로파파크-2.jpg',
+      '/images/activities/유로파파크-3.jpg'
+    ]
   },
   {
     id: '알튼-타워스',
@@ -863,7 +1144,12 @@ export const activitiesData: Activity[] = [
       '계절 운영: 3월~11월',
       '공포 테마로 유명'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/알튼-타워스-1.jpg',
+      '/images/activities/알튼-타워스-2.jpg',
+      '/images/activities/알튼-타워스-3.jpg'
+    ]
   },
   {
     id: '시더-포인트',
@@ -878,7 +1164,12 @@ export const activitiesData: Activity[] = [
       '다양한 어트랙션과 워터파크 겸비',
       '블루 스트릭, 아토믹 스크램블러 등 유명'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/시더-포인트-1.jpg',
+      '/images/activities/시더-포인트-2.jpg',
+      '/images/activities/시더-포인트-3.jpg'
+    ]
   },
   {
     id: '캐나다스-원더랜드',
@@ -893,7 +1184,12 @@ export const activitiesData: Activity[] = [
       '레이지 리버를 타며 공원 경관 감상 가능',
       '캐나다 최대 테마파크'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/캐나다스-원더랜드-1.jpg',
+      '/images/activities/캐나다스-원더랜드-2.jpg',
+      '/images/activities/캐나다스-원더랜드-3.jpg'
+    ]
   },
   {
     id: '베토-카레로-월드',
@@ -908,7 +1204,12 @@ export const activitiesData: Activity[] = [
       '9개 테마 구역과 100개 이상 어트랙션',
       '목재 롤러코스터 파이어휩과 동물원 포함'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/베토-카레로-월드-1.jpg',
+      '/images/activities/베토-카레로-월드-2.jpg',
+      '/images/activities/베토-카레로-월드-3.jpg'
+    ]
   },
   {
     id: '식스-플래그스-멕시코',
@@ -923,7 +1224,12 @@ export const activitiesData: Activity[] = [
       '세계 최고 펜듈럼 라이드 크라제니티 보유',
       '연간 200만 명 이상 방문'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=400&auto=format&fit=crop'
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/식스-플래그스-멕시코-1.jpg',
+      '/images/activities/식스-플래그스-멕시코-2.jpg',
+      '/images/activities/식스-플래그스-멕시코-3.jpg'
+    ]
   },
   {
     id: '판타실란디아',
@@ -938,6 +1244,12 @@ export const activitiesData: Activity[] = [
       '마이닝 트레인, 부메랑, 랩터 등 운영',
       '가족 친화적 놀이기구 보유'
     ],
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/판타실란디아-1.jpg',
+      '/images/activities/판타실란디아-2.jpg',
+      '/images/activities/판타실란디아-3.jpg'
+    ]
   },
   {
     id: 'bwindi-gorilla-trekking',
@@ -952,7 +1264,12 @@ export const activitiesData: Activity[] = [
       "3~6시간 밀림 트레킹으로 야생 고릴라 조우",
       "지역 공동체와 연계한 지속가능 관광"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1593486147824-cd4ab3414737?q=80&w=400&auto=format&fit=crop"
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/bwindi-gorilla-trekking-1.jpg',
+      '/images/activities/bwindi-gorilla-trekking-2.jpg',
+      '/images/activities/bwindi-gorilla-trekking-3.jpg'
+    ]
   },
   {
     id: 'everest-basecamp-trek',
@@ -967,7 +1284,12 @@ export const activitiesData: Activity[] = [
       "약 12일간 130km 히말라야 횡단",
       "몬촌(티벳불교) 문화와 몽블랑 등정 대비 인기 코스"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1542834369-f10ebf06d3d1?q=80&w=400&auto=format&fit=crop"
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/everest-basecamp-trek-1.jpg',
+      '/images/activities/everest-basecamp-trek-2.jpg',
+      '/images/activities/everest-basecamp-trek-3.jpg'
+    ]
   },
   {
     id: 'volcano-boarding-nicaragua',
@@ -982,7 +1304,12 @@ export const activitiesData: Activity[] = [
       "45° 자갈 경사에서 최고 시속 80km 질주",
       "보호장비 착용, 728m 화산 정상까지 등반 후 내려오는 익스트림 체험"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1586711823848-4d47c01f3de4?q=80&w=400&auto=format&fit=crop"
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/volcano-boarding-nicaragua-1.jpg',
+      '/images/activities/volcano-boarding-nicaragua-2.jpg',
+      '/images/activities/volcano-boarding-nicaragua-3.jpg'
+    ]
   },
   {
     id: 'waitomo-blackwater-rafting',
@@ -997,7 +1324,12 @@ export const activitiesData: Activity[] = [
       "동굴 천장에 빛나는 수천 개의 반딧불이 서식",
       "소형 폭포 점프와 암흑 속 집라인 등 다양한 코스 (3~5시간)"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1562577309-2592ab84b1bc?q=80&w=400&auto=format&fit=crop"
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/waitomo-blackwater-rafting-1.jpg',
+      '/images/activities/waitomo-blackwater-rafting-2.jpg',
+      '/images/activities/waitomo-blackwater-rafting-3.jpg'
+    ]
   },
   {
     id: 'cn-tower-edgewalk',
@@ -1012,7 +1344,12 @@ export const activitiesData: Activity[] = [
       "안전 하네스에만 의지해 360도 도시 전망 만끽",
       "세계 최고 높이 외부 도보 코스 인증"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1528391721815-1462048b9f42?q=80&w=400&auto=format&fit=crop"
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/cn-tower-edgewalk-1.jpg',
+      '/images/activities/cn-tower-edgewalk-2.jpg',
+      '/images/activities/cn-tower-edgewalk-3.jpg'
+    ]
   },
   {
     id: 'son-doong-cave-vietnam',
@@ -1027,7 +1364,12 @@ export const activitiesData: Activity[] = [
       "70m 높이 종유석과 야구공 크기 동굴진주 존재",
       "연간 1천명 미만만 입장 허용되는 4박5일 한정 원정"
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Son_Doong_Cave_DB_%281%29.jpg"
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/son-doong-cave-vietnam-1.jpg',
+      '/images/activities/son-doong-cave-vietnam-2.jpg',
+      '/images/activities/son-doong-cave-vietnam-3.jpg'
+    ]
   },
   {
     id: 'dubai-tandem-skydive',
@@ -1042,7 +1384,12 @@ export const activitiesData: Activity[] = [
       "하강하며 야자섬과 도시 전경 파노라마 감상",
       "세계 각지 모험가들이 찾는 최고 인기 스카이다이빙 명소"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1542000551458-3fb6469f5b39?q=80&w=400&auto=format&fit=crop"
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/dubai-tandem-skydive-1.jpg',
+      '/images/activities/dubai-tandem-skydive-2.jpg',
+      '/images/activities/dubai-tandem-skydive-3.jpg'
+    ]
   },
   {
     id: 'kilimanjaro-summit-trek',
@@ -1057,6 +1404,11 @@ export const activitiesData: Activity[] = [
       "열대 우림부터 설원까지 5개 기후대 체험",
       "특별한 등반 기술 없이도 도전 가능하지만 고소적응 필수"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1550233570-9b2ae249d7fd?q=80&w=400&auto=format&fit=crop"
+    imageUrl: '/images/activities/default-activity.jpg',
+    imageUrls: [
+      '/images/activities/kilimanjaro-summit-trek-1.jpg',
+      '/images/activities/kilimanjaro-summit-trek-2.jpg',
+      '/images/activities/kilimanjaro-summit-trek-3.jpg'
+    ]
   }
 ]; 
